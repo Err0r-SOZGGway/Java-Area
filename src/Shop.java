@@ -12,6 +12,8 @@ public class Shop {
 		System.out.println("税込み金額は、" + amount + "円です。");
 		int discountPrice = (int)(amount * 0.8);
 		System.out.println("20%割引した価格は、税込み" + discountPrice + "円です。");
+		
+		sc.close();
 
 	}
 
