@@ -1,3 +1,3 @@
 # Java-Area
 
-**Development Practice**
+**Java Development Practice**
