@@ -73,6 +73,167 @@ public class EclTest {
 		for(String k : name) {
 			System.out.println(k);
 		}
+		
+		System.out.println("");
+		
+		// オブジェクト、コンストラクタ
+		Human human = new Human("太郎", 19800101);
+		
+		System.out.println("名前：" + human.name);
+		System.out.println("生年月日：" + human.birthday);
+		System.out.println("満腹度：" + human.manpukudo);
+		
+		System.out.println("");
+		
+//		human.name = "太郎";
+//		human.birthday = 19800101;
+		
+		Human human2 = new Human("美香", 20111231);
+//		human2.name = "美香";
+//		human2.birthday = 20111231;
+		
+		Human human3 = new Human("ジョン", 19630721);
+		
+		System.out.println("1人目");
+		System.out.println("名前：" + human.name);
+		System.out.println("生年月日：" + human.birthday);
+		
+		System.out.println("");
+		
+		System.out.println("2人目");
+		System.out.println("名前：" + human2.name);
+		System.out.println("生年月日：" + human2.birthday);
+		
+		human.eat();
+		human.eat();
+		
+		human2.eat();
+		
+		System.out.print(human.name + "の満腹度：");
+		System.out.println(human.manpukudo);
+		System.out.print(human2.name + "の満腹度：");
+		System.out.println(human2.manpukudo);
+		
+		System.out.println("");
+		
+		System.out.println("3人目");
+		System.out.println("名前：" + human3.name);
+		System.out.println("生年月日：" + human3.birthday);
+		System.out.println("満腹度：" + human3.manpukudo);
+		
+		System.out.println("");
+		
+		// コンストラクタ
+		status  hero = new status();
+		status warrior = new status("ノックス",80,10,30);
+		status wizard = new status("マージ",10,60);
+		status fighter = new status("ケン","武闘家");
+		status thief = new status("ルビー");
+		
+		System.out.println("名前　" + hero.Name);
+		System.out.println("職業　" + hero.Job);
+		System.out.println("ちから　" + hero.STR);
+		System.out.println("まもり　" + hero.DEF);
+		System.out.println("まほう　" + hero.MAG);
+		System.out.println("すばやさ　" + hero.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + warrior.Name);
+		System.out.println("職業　" + warrior.Job);
+		System.out.println("ちから　" + warrior.STR);
+		System.out.println("まもり　" + warrior.DEF);
+		System.out.println("まほう　" + warrior.MAG);
+		System.out.println("すばやさ　" + warrior.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + wizard.Name);
+		System.out.println("職業　" + wizard.Job);
+		System.out.println("ちから　" + wizard.STR);
+		System.out.println("まもり　" + wizard.DEF);
+		System.out.println("まほう　" + wizard.MAG);
+		System.out.println("すばやさ　" + wizard.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + fighter.Name);
+		System.out.println("職業　" + fighter.Job);
+		System.out.println("ちから　" + fighter.STR);
+		System.out.println("まもり　" + fighter.DEF);
+		System.out.println("まほう　" + fighter.MAG);
+		System.out.println("すばやさ　" + fighter.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + thief.Name);
+		System.out.println("職業　" + thief.Job);
+		System.out.println("ちから　" + thief.STR);
+		System.out.println("まもり　" + thief.DEF);
+		System.out.println("まほう　" + thief.MAG);
+		System.out.println("すばやさ　" + thief.SPD);
+		
+		System.out.println("");
+		
+		hero.STRUP();
+		hero.MAGUP();
+		hero.SPDUP();
+		
+		warrior.STRUP();
+		warrior.STRUP();
+		
+		wizard.MAGUP();
+		wizard.MAGUP();
+		
+		fighter.SPDUP();
+		thief.SPDUP();
+		
+		System.out.println("能力上昇後のステータス");
+		
+		System.out.println("名前　" + hero.Name);
+		System.out.println("職業　" + hero.Job);
+		System.out.println("ちから　" + hero.STR);
+		System.out.println("まもり　" + hero.DEF);
+		System.out.println("まほう　" + hero.MAG);
+		System.out.println("すばやさ　" + hero.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + warrior.Name);
+		System.out.println("職業　" + warrior.Job);
+		System.out.println("ちから　" + warrior.STR);
+		System.out.println("まもり　" + warrior.DEF);
+		System.out.println("まほう　" + warrior.MAG);
+		System.out.println("すばやさ　" + warrior.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + wizard.Name);
+		System.out.println("職業　" + wizard.Job);
+		System.out.println("ちから　" + wizard.STR);
+		System.out.println("まもり　" + wizard.DEF);
+		System.out.println("まほう　" + wizard.MAG);
+		System.out.println("すばやさ　" + wizard.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + fighter.Name);
+		System.out.println("職業　" + fighter.Job);
+		System.out.println("ちから　" + fighter.STR);
+		System.out.println("まもり　" + fighter.DEF);
+		System.out.println("まほう　" + fighter.MAG);
+		System.out.println("すばやさ　" + fighter.SPD);
+		
+		System.out.println("");
+		
+		System.out.println("名前　" + thief.Name);
+		System.out.println("職業　" + thief.Job);
+		System.out.println("ちから　" + thief.STR);
+		System.out.println("まもり　" + thief.DEF);
+		System.out.println("まほう　" + thief.MAG);
+		System.out.println("すばやさ　" + thief.SPD);
+		
+		System.out.println("");
 	}
 
 }
