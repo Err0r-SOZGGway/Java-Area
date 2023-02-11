@@ -85,6 +85,8 @@ public class EclTest {
 		
 		System.out.println("");
 		
+		System.out.println("Humanインスタンスの数：" + Human.getCount_Human());
+		
 //		human.name = "太郎";
 //		human.birthday = 19800101;
 		
@@ -123,12 +125,17 @@ public class EclTest {
 		
 		System.out.println("");
 		
+		System.out.println("Humanインスタンスの数：" + Human.getCount_Human());
+		
+		System.out.println("");
+		
 		// コンストラクタ
 		status  hero = new status();
 		status warrior = new status("ノックス",80,10,30);
 		status wizard = new status("マージ",10,60);
 		status fighter = new status("ケン","武闘家");
 		status thief = new status("ルビー");
+		status gambler = new status("ルイダ","遊び人",30,30,50,60);
 		
 		System.out.println("名前　" + hero.Name);
 		System.out.println("職業　" + hero.Job);
@@ -175,6 +182,16 @@ public class EclTest {
 		
 		System.out.println("");
 		
+		System.out.println("名前　" + gambler.Name);
+		System.out.println("職業　" + gambler.Job);
+		System.out.println("ちから　" + gambler.STR);
+		System.out.println("まもり　" + gambler.DEF);
+		System.out.println("まほう　" + gambler.MAG);
+		System.out.println("すばやさ　" + gambler.SPD);
+		
+		System.out.println("");
+		
+		
 		hero.STRUP();
 		hero.MAGUP();
 		hero.SPDUP();
@@ -184,9 +201,11 @@ public class EclTest {
 		
 		wizard.MAGUP();
 		wizard.MAGUP();
+		gambler.MAGUP();
 		
 		fighter.SPDUP();
 		thief.SPDUP();
+		
 		
 		System.out.println("能力上昇後のステータス");
 		
@@ -234,6 +253,16 @@ public class EclTest {
 		System.out.println("すばやさ　" + thief.SPD);
 		
 		System.out.println("");
+		
+		System.out.println("名前　" + gambler.Name);
+		System.out.println("職業　" + gambler.Job);
+		System.out.println("ちから　" + gambler.STR);
+		System.out.println("まもり　" + gambler.DEF);
+		System.out.println("まほう　" + gambler.MAG);
+		System.out.println("すばやさ　" + gambler.SPD);
+		
+		System.out.println("");
+		
 	}
 
 }
