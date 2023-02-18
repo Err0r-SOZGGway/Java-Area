@@ -79,9 +79,9 @@ public class EclTest {
 		// オブジェクト、コンストラクタ
 		Human human = new Human("太郎", 19800101);
 		
-		System.out.println("名前：" + human.name);
-		System.out.println("生年月日：" + human.birthday);
-		System.out.println("満腹度：" + human.manpukudo);
+		System.out.println("名前：" + human.getName());
+		System.out.println("生年月日：" + human.getBirthday());
+		System.out.println("満腹度：" + human.getManpukudo());
 		
 		System.out.println("");
 		
@@ -97,31 +97,47 @@ public class EclTest {
 		Human human3 = new Human("ジョン", 19630721);
 		
 		System.out.println("1人目");
-		System.out.println("名前：" + human.name);
-		System.out.println("生年月日：" + human.birthday);
+		System.out.println("名前：" + human.getName());
+		System.out.println("生年月日：" + human.getBirthday());
 		
 		System.out.println("");
 		
 		System.out.println("2人目");
-		System.out.println("名前：" + human2.name);
-		System.out.println("生年月日：" + human2.birthday);
+		System.out.println("名前：" + human2.getName());
+		System.out.println("生年月日：" + human2.getBirthday());
+		
+		human.setName("ジョナサン・ジョースター");
+		human.setName("一郎");
+		
+		human.run();
+		human.run();
+		
+		human2.walk();
+		
+		System.out.print(human.getName() + "の満腹度：");
+		System.out.println(human.getManpukudo());
+		System.out.print(human2.getName() + "の満腹度：");
+		System.out.println(human2.getManpukudo());
+		
 		
 		human.eat();
 		human.eat();
 		
 		human2.eat();
 		
-		System.out.print(human.name + "の満腹度：");
-		System.out.println(human.manpukudo);
-		System.out.print(human2.name + "の満腹度：");
-		System.out.println(human2.manpukudo);
+		System.out.println("");
+		
+		System.out.print(human.getName() + "の満腹度：");
+		System.out.println(human.getManpukudo());
+		System.out.print(human2.getName() + "の満腹度：");
+		System.out.println(human2.getManpukudo());
 		
 		System.out.println("");
 		
 		System.out.println("3人目");
-		System.out.println("名前：" + human3.name);
-		System.out.println("生年月日：" + human3.birthday);
-		System.out.println("満腹度：" + human3.manpukudo);
+		System.out.println("名前：" + human3.getName());
+		System.out.println("生年月日：" + human3.getBirthday());
+		System.out.println("満腹度：" + human3.getManpukudo());
 		
 		System.out.println("");
 		
