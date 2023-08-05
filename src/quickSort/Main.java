@@ -6,12 +6,14 @@ public class Main {
 		int[] array1 = { 2, 8, 10, 5, 4, 1, 9, 7, 3, 6 };
 		int[] array2 = { 3, 7, 1, 6, 10, 9, 2, 4, 5, 8 };
 
+		// メソッドを作成してクイックソートを実装
 		print(array1);
 		quickSort(array1, 0, array1.length);
 		print(array1);
 		
 		System.out.println();
 		
+		// ライブラリを使ってクイックソートを実装
 		print(array2);
 		java.util.Arrays.sort(array2);
 		print(array2);
