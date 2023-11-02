@@ -2,21 +2,12 @@ package com.JavaGame;
 
 import java.util.List;
 
+/**
+ *  ディーラーの処理を制御
+ * @author S.W.
+ * @version 1.0.0
+ */
 public class Dealer extends PlayerBase {
-		
-//	private int dealerPoint;
-//	
-//	private int dealerHands;
-//	
-//	private boolean dealerBust;
-//	
-//	private List<Integer> dealerCardList;
-	
-	public Dealer() {
-		setPoint(0);
-		setHands(0);
-		setBust(false);
-	}
 	
 	public void dealerDraw(List<Integer> deck, int deckCount) {
 				
@@ -31,7 +22,7 @@ public class Dealer extends PlayerBase {
 				
 				// ポイントが21ならループを抜ける
 				if(getPoint() == 21) {
-					System.out.println("ブラックジャック！！");
+					System.out.println("ディーラーがブラックジャック！！");
 					break;
 				}
 				

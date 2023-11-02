@@ -3,21 +3,13 @@ package com.JavaGame;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * プレイヤーの処理を制御
+ * @author S.W.
+ * @version 1.0.0
+ */
+
 public class Player extends PlayerBase{
-	
-//	private int playerPoint;
-//	
-//	private int playerHands;
-//	
-//	private boolean playerBust;
-//	
-//	private List<Integer> playerCardList;
-	
-	public Player() {
-		setPoint(0);
-		setHands(0);
-		setBust(false);
-	}
 	
 	public void playerDraw(List<Integer> deck, int deckCount) {
 		
@@ -37,7 +29,7 @@ public class Player extends PlayerBase{
 					
 					// ポイントが21ならループを抜ける
 					if(getPoint() == 21) {
-						System.out.println("ブラックジャック！！");
+						System.out.println("プレイヤーがブラックジャック！！");
 						break;
 					}
 					

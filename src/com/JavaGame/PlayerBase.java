@@ -3,6 +3,12 @@ package com.JavaGame;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ *  ブラックジャックのプレイヤーのベースとなるオブジェクト
+ * @author S.W.
+ * @version 1.0.0
+ */
 public class PlayerBase {
 	
 		private int point;

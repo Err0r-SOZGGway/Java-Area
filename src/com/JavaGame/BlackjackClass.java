@@ -9,13 +9,15 @@ import java.util.Scanner;
  */
 public class BlackjackClass {
 	
+	public static boolean gameFlag = true;
+	
 	public static void main(String[] args) {
 	
+		
 	Scanner sc = new Scanner(System.in);
 	
-	// ゲームを終了する処理をメソッドにする
 	// playerとdealerのuserDrawメソッドの実行とdeckCountの増加処理をメソッドでまとめる
-	while (true) {
+	while (gameFlag) {
 		
 		Player player = new Player();
 		Dealer dealer = new Dealer();
@@ -74,17 +76,13 @@ public class BlackjackClass {
 			
 			System.out.println();
 			
-			System.out.println("もう一度遊びますか？yかnを入力して下さい。 Yes:y or No:n");
+			gameEnd();
 			
-
-			String gameContinue = sc.nextLine();
-			if ("n".equals(gameContinue)) {
-				System.out.println("ゲームを終了します");
-				break;
-			} else if("y".equals(gameContinue)) {
+			if (gameFlag) {
 				continue;
+			} else {
+				break;
 			}
-			
 		} else {
 			// ディーラーが手札を17以上にするまでカードを引くフェーズ
 			dealer.dealerDraw(deck.getDeckList(), deck.getDeckCount());
@@ -100,13 +98,11 @@ public class BlackjackClass {
 				
 				System.out.println();
 				
-				System.out.println("もう一度遊びますか？yかnを入力して下さい。 Yes:y or No:n");
-				String gameContinue = sc.nextLine();
-				if ("n".equals(gameContinue)) {
-					System.out.println("ゲームを終了します");
-					break;
-				} else if("y".equals(gameContinue)) {
+				gameEnd();
+				if (gameFlag) {
 					continue;
+				} else {
+					break;
 				}
 			}
 			
@@ -121,16 +117,31 @@ public class BlackjackClass {
 			
 			System.out.println();
 			
-			System.out.println("もう一度遊びますか？yかnを入力して下さい。 Yes:y or No:n");
-			
+			gameEnd();
+			if (gameFlag) {
+				continue;
+			} else {
+				break;
+			}
+			}
+		}
+	}
+	
+	private static void gameEnd() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("もう一度遊びますか？yかnを入力して下さい。 Yes:y or No:n");
+		
+		try {
 			String gameContinue = sc.nextLine();
 			if ("n".equals(gameContinue)) {
 				System.out.println("ゲームを終了します");
-				break;
+				gameFlag = false;
 			} else if("y".equals(gameContinue)) {
-				continue;
+				gameFlag = true;
 			}
+		} catch (Exception e) {
+			System.out.println("無効な入力です。yかnを入力して下さい。");
 		}
-		}
-	}	
+	}
 }

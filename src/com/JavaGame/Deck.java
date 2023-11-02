@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ *  ブラックジャックの手札を制御する
+ * @author S.W.
+ * @version 1.0.0
+ */
 public class Deck {
 	
 	// 山札の進行状況を記録
@@ -53,10 +58,6 @@ public class Deck {
 		return card;
 	}
 	
-	public Deck deckMake() {
-		return new Deck();
-	}
-	
 	public int getDeckCount() {
 		return deckCount;
 	}
@@ -71,11 +72,6 @@ public class Deck {
 
 	public void setDeckList(List<Integer> deck) {
 		this.deckList = deck;
-	}
-
-	public Integer cardDraw(List<Integer> deckList2, int deckCount2) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
 	}
 	
 }
