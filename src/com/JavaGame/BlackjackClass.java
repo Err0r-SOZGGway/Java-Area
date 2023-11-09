@@ -1,5 +1,6 @@
 package com.JavaGame;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,20 +13,32 @@ public class BlackjackClass {
 	public static boolean gameFlag = true;
 	
 	public static void main(String[] args) {
-	
 		
 	Scanner sc = new Scanner(System.in);
+	
+	Player player = new Player();
+	Dealer dealer = new Dealer();
+	Deck deck = new Deck();
+	
+	int resultChip = 0;
+	player.setChip(200);
 	
 	// playerとdealerのuserDrawメソッドの実行とdeckCountの増加処理をメソッドでまとめる
 	while (gameFlag) {
 		
-		Player player = new Player();
-		Dealer dealer = new Dealer();
-		Deck deck = new Deck();
-		
 		System.out.println("ゲームを開始します");
 		// 山札をシャッフル
 		deck.shuffleDeck(deck.getDeckList());
+		
+		System.out.println("チップの枚数を決めて下さい。");
+		System.out.print("現在のチップ：" + player.getChip());
+		System.out.println();
+		
+		// チップの枚数を入力して決める
+		int betChip = sc.nextInt();
+		resultChip = player.getChip() - betChip;
+		player.setChip(resultChip);
+		System.out.println(betChip + "をベットします。 残りチップ：" + resultChip);
 		
 		// deckListからプレイヤー・ディーラーがカードを2枚引く	
 		// なんかキモイソースになってしまったのでもう少しスマートにしたい
@@ -73,14 +86,25 @@ public class BlackjackClass {
 			System.out.println("あなたのポイント："+player.getPoint());
 			System.out.println("ディーラーのポイント："+dealer.getPoint());
 			System.out.println("YOU LOSE...");
+			System.out.println("チップを失いました…　残りチップ：" + player.getChip());
 			
 			System.out.println();
 			
 			gameEnd();
 			
 			if (gameFlag) {
+				player.setHands(0);
+				player.setPoint(0);
+				player.setBust(false);
+				player.setCardList(new ArrayList<Integer>());
+				
+				dealer.setHands(0);
+				dealer.setPoint(0);
+				dealer.setBust(false);
+				dealer.setCardList(new ArrayList<Integer>());
 				continue;
 			} else {
+				System.out.println("最終チップ：" + player.getChip());
 				break;
 			}
 		} else {
@@ -95,13 +119,27 @@ public class BlackjackClass {
 				// プレイヤーの勝ちとしてゲームを終了
 				// もう一度遊ぶか文を表示して、yかnの入力を受け付ける
 				System.out.println("YOU WIN!");
+				System.out.println("ベットしたチップの2倍の金額がもらえます！　");
+				
+				player.setChip(resultChip + (betChip * 2));
+				System.out.print("残りチップ：" + player.getChip());
 				
 				System.out.println();
 				
 				gameEnd();
 				if (gameFlag) {
+					player.setHands(0);
+					player.setPoint(0);
+					player.setBust(false);
+					player.setCardList(new ArrayList<Integer>());
+					
+					dealer.setHands(0);
+					dealer.setPoint(0);
+					dealer.setBust(false);
+					dealer.setCardList(new ArrayList<Integer>());
 					continue;
 				} else {
+					System.out.println("最終チップ：" + player.getChip());
 					break;
 				}
 			}
@@ -109,25 +147,45 @@ public class BlackjackClass {
 			// ポイントを比較する
 			if (player.getPoint() == dealer.getPoint()) {
 				System.out.println("DROW");
+				System.out.println("ベットしたチップが返ってきます。");
+				player.setChip(resultChip + betChip);
+				System.out.print("残りチップ：" + player.getChip());
 			} else if (player.getPoint() > dealer.getPoint()) {
 				System.out.println("YOU WIN!");
+				System.out.println("ベットしたチップの2倍の金額がもらえます！　");
+				player.setChip(resultChip + (betChip * 2));
+				System.out.print("残りチップ：" + player.getChip());
 			} else {
 				System.out.println("YOU LOSE...");
+				System.out.println("チップを失いました…　残りチップ：" + player.getChip());
 			}
 			
 			System.out.println();
 			
 			gameEnd();
 			if (gameFlag) {
+				player.setHands(0);
+				player.setPoint(0);
+				player.setBust(false);
+				player.setCardList(new ArrayList<Integer>());
+				
+				dealer.setHands(0);
+				dealer.setPoint(0);
+				dealer.setBust(false);
+				dealer.setCardList(new ArrayList<Integer>());
 				continue;
 			} else {
+				System.out.println("最終チップ：" + player.getChip());
 				break;
 			}
-			}
+		}
 		}
 	}
 	
 	private static void gameEnd() {
+		Player pl = new Player();
+		Dealer de = new Dealer();
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("もう一度遊びますか？yかnを入力して下さい。 Yes:y or No:n");

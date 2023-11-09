@@ -29,7 +29,7 @@ public class Player extends PlayerBase{
 					
 					// ポイントが21ならループを抜ける
 					if(getPoint() == 21) {
-						System.out.println("プレイヤーがブラックジャック！！");
+						System.out.println("21になりました。");
 						break;
 					}
 					

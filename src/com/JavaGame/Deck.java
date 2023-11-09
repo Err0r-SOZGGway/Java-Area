@@ -15,13 +15,15 @@ public class Deck {
 	private int deckCount;
 	
 	// 山札のリスト
-	private List<Integer> deckList = new ArrayList<Integer>();
+	private List<Integer> deckList = new ArrayList<Integer>(52);
 	
 	public Deck() {
 		setDeckCount(0);;
 	}
 	
 	public void shuffleDeck(List<Integer> deck) {
+		// listを初期化したい（nullにするとぬるぽの原因になる）
+		
 //        リストに1から52の連番を代入
 //		deck = IntStream.range(1, 52).boxed().collect(Collectors.toList());
 		for (int i=1;i<=52;i++) {
@@ -40,8 +42,7 @@ public class Deck {
 	// カードを引く処理
 	public int deckCardDraw(List<Integer> deck, int deckCount) {
 		// 山札からカードを1枚取得
-		// deckCountでdeckのインデックスを決めているのでdeckの連番を消す必要はない
-		// getDeckCountだとIndexOutで例外を吐いてしまうので考える
+		// getDeckCountだとIndexOutで例外を吐いてしまう
 		int card = deck.get(deckCount);
 		// 山札を1枚進める
 		deckCount++;
@@ -50,8 +51,7 @@ public class Deck {
 	
 	public int cardDraw(List<Integer> deck) {
 		// 山札からカードを1枚取得
-		// deckCountでdeckのインデックスを決めているのでdeckの連番を消す必要はない
-		// getDeckCountだとIndexOutで例外を吐いてしまうので考える
+		// getDeckCountだとIndexOutで例外を吐いてしまう
 		int card = deck.get(deckCount);
 		// 山札を1枚進める
 		deckCount++;

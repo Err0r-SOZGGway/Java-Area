@@ -22,7 +22,7 @@ public class Dealer extends PlayerBase {
 				
 				// ポイントが21ならループを抜ける
 				if(getPoint() == 21) {
-					System.out.println("ディーラーがブラックジャック！！");
+					System.out.println("21になりました。");
 					break;
 				}
 				

@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class PlayerBase {
 	
+		// プレイヤーのポイント
 		private int point;
 	
 		// 手札の枚数
@@ -18,6 +19,12 @@ public class PlayerBase {
 	
 		// バーストかどうか判定
 		private boolean bust;
+		
+		// Aを持っているかどうかの判定
+		private static boolean aCardHold;
+		
+		// チップの枚数
+		private int chip;
 	
 		// 手札
 		List<Integer> cardList = new ArrayList<Integer>();
@@ -27,22 +34,21 @@ public class PlayerBase {
 		// 山札からカードを引く
 		public void userDraw(List<Integer> deckList, int deckCount) {		
 			// drawメソッドでdeckから得た値をcardListに加える
-//			cardList.add();
 			cardList.add(deck.deckCardDraw(deckList, deckCount));
 			deckCount++;
-//			cardList.add();
 			hands++;
 			point = sumPoint(cardList);
+			// Aを持っているかつ点数が11点数以下の場合、Aを11として点数に10点足す
+			// 計算の得点を計算するときにこの処理を追加する
+			if (isaCardHold() && point <= 11) {
+				point += 10;
+			}
 		}
 		
 		public void userDraw(List<Integer> deckList) {
 			cardList.add(deck.cardDraw(deckList));
 			hands++;
 			point = sumPoint(cardList);
-		}
-		
-		public List<Integer> userCardListMake() {
-			return new ArrayList<Integer>();
 		}
 	
 		// 山札の数を「スート」の「ランク」の文字列に置き換える
@@ -56,8 +62,7 @@ public class PlayerBase {
 		// 現在の合計ポイントを計算する
 		public int sumPoint(List<Integer> list) {
 			int sum = 0;
-			//		仮のコード
-//				int sum = list.stream().mapToInt(Integer::intValue).sum();
+			
 			for (int i = 0; i < list.size(); i++) {
 				sum += toPoint(toNumber(list.get(i)));
 			}
@@ -90,6 +95,7 @@ public class PlayerBase {
 		private static String toRank(int number) {
 			switch (number) {
 			case 1:
+				aCardHold = true;
 				return "A";
 			case 11:
 				return "J";
@@ -153,6 +159,22 @@ public class PlayerBase {
 
 		public void setBust(boolean bust) {
 			this.bust = bust;
+		}
+
+		public boolean isaCardHold() {
+			return aCardHold;
+		}
+
+		public void setaCardHold(boolean aCardHold) {
+			this.aCardHold = aCardHold;
+		}
+		
+		public int getChip() {
+			return chip;
+		}
+
+		public void setChip(int chip) {
+			this.chip = chip;
 		}
 
 		public List<Integer> getCardList() {
